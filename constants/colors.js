@@ -4,6 +4,7 @@ const COLORS = {
   TART_ORANGE: '#ef5d5fff',
   CAPUT_MORTUUM: '#612627ff',
   SNOW: '#fef6f9ff',
+  BACKGROUND: '#ccc',
 };
 
 export default COLORS;

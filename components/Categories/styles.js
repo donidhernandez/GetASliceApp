@@ -3,7 +3,6 @@ import COLORS from '../../constants/colors';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 5,
     backgroundColor: COLORS.BLACK,
     paddingVertical: 20,
     paddingLeft: 20,
