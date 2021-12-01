@@ -4,6 +4,7 @@ import HeaderTabs from '../../components/Header/Tabs';
 import styles from './styles';
 import SearchBar from '../../components/SearchBar';
 import Categories from '../../components/Categories';
+import PlaceItem from '../../components/PlaceItem';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
+        <PlaceItem />
       </ScrollView>
     </SafeAreaView>
   );
