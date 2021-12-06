@@ -12,11 +12,11 @@ const YELP_API_KEY =
 
 export default function Home() {
   const [places, setPlaces] = useState([]);
+  const [city, setCity] = useState('San Antonio');
 
   useEffect(() => {
     const getPlacesFromYelp = async () => {
-      const yelpURL =
-        'https://api.yelp.com/v3/businesses/search?term=restaurants&location=SanDiego';
+      const yelpURL = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
 
       const apiOptions = {
         headers: {
@@ -27,16 +27,18 @@ export default function Home() {
       return res.data.businesses;
     };
     getPlacesFromYelp().then(res => setPlaces(res));
-  }, []);
+  }, [city]);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <HeaderTabs />
-        <SearchBar />
+        <SearchBar cityHandler={setCity} />
+      </View>
+      <View>
+        <Categories />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Categories />
         <PlaceList places={places} />
       </ScrollView>
     </SafeAreaView>

@@ -9,14 +9,14 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 10,
     backgroundColor: 'white',
-    borderRadius: 15,
+    borderRadius: 18,
   },
   image: {
     width: '100%',
     height: 180,
     resizeMode: 'cover',
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
+    borderTopLeftRadius: 18,
+    borderTopRightRadius: 18,
   },
   icon: {
     position: 'absolute',
@@ -27,26 +27,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
   },
   title: {
     fontSize: 15,
     fontWeight: 'bold',
+    color: COLORS.BLACK,
   },
   delivery: {
     fontSize: 13,
     color: COLORS.TART_ORANGE,
   },
   rating: {
-    backgroundColor: COLORS.SNOW,
+    backgroundColor: COLORS.ORANGE_YELLOW_CRAYOLA,
     height: 30,
     width: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 15,
+    borderRadius: 10,
   },
   ratingText: {
     fontWeight: '600',
+    color: COLORS.SNOW,
   },
 });
 

@@ -5,6 +5,7 @@ const COLORS = {
   CAPUT_MORTUUM: '#612627ff',
   SNOW: '#fef6f9ff',
   BACKGROUND: '#ccc',
+  GRAY: '#333',
 };
 
 export default COLORS;

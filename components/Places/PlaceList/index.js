@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles';
-import {Text, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import PlaceItem from '../PlaceItem';
 
 export default function PlaceList({places}) {

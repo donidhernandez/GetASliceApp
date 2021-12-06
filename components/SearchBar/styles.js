@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
       borderRadius: 20,
       fontWeight: '700',
       marginTop: 7,
-      color: COLORS.SNOW,
+      color: COLORS.BLACK,
     },
     textInputContainer: {
       backgroundColor: COLORS.ORANGE_YELLOW_CRAYOLA,
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       marginRight: 10,
-      color: COLORS.SNOW,
+      color: COLORS.BLACK,
     },
   },
   searchIcon: {
@@ -36,6 +36,10 @@ const styles = StyleSheet.create({
   },
   clockIcon: {
     marginRight: 6,
+    color: COLORS.GRAY,
+  },
+  searchText: {
+    color: COLORS.GRAY,
   },
 });
 
