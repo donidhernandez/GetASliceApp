@@ -4,6 +4,7 @@ import styles from './styles';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import COLORS from '../../../constants/colors';
 
 const SearchBar = ({cityHandler}) => {
   return (
@@ -14,6 +15,7 @@ const SearchBar = ({cityHandler}) => {
           const city = data.description.split(',')[0];
           cityHandler(city);
         }}
+        listUnderlayColor={COLORS.BLACK}
         styles={styles.searchBar}
         placeholder="Search"
         renderLeftButton={() => (

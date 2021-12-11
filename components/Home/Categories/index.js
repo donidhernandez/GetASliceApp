@@ -5,23 +5,23 @@ import styles from './styles';
 export default function Categories() {
   const categories = [
     {
-      image: require('../../assets/icons/pickups.png'),
+      image: require('../../../assets/icons/pickups.png'),
       text: 'Pick-up',
     },
     {
-      image: require('../../assets/icons/burger.png'),
+      image: require('../../../assets/icons/burger.png'),
       text: 'Breads',
     },
     {
-      image: require('../../assets/icons/fries.png'),
+      image: require('../../../assets/icons/fries.png'),
       text: 'Fast Food',
     },
     {
-      image: require('../../assets/icons/pizza.png'),
+      image: require('../../../assets/icons/pizza.png'),
       text: 'Pizza',
     },
     {
-      image: require('../../assets/icons/shakes.png'),
+      image: require('../../../assets/icons/shakes.png'),
       text: 'Drinks',
     },
   ];

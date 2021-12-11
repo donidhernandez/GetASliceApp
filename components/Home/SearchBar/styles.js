@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import COLORS from '../../constants/colors';
+import COLORS from '../../../constants/colors';
 
 const styles = StyleSheet.create({
   searchContainer: {
@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       marginRight: 10,
+      color: COLORS.BLACK,
+    },
+    description: {
       color: COLORS.BLACK,
     },
   },

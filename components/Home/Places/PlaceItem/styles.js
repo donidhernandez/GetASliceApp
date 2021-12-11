@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import COLORS from '../../../constants/colors';
+import COLORS from '../../../../constants/colors';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -40,9 +40,6 @@ const styles = StyleSheet.create({
     color: COLORS.TART_ORANGE,
   },
   rating: {
-    backgroundColor: COLORS.ORANGE_YELLOW_CRAYOLA,
-    height: 30,
-    width: 30,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 10,

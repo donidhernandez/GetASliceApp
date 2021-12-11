@@ -1,9 +1,10 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import Home from './screens/Home';
+import Details from './screens/Details';
 
 const App: () => Node = () => {
-  return <Home />;
+  return <Details />;
 };
 
 const styles = StyleSheet.create({});

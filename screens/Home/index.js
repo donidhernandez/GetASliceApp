@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
-import HeaderTabs from '../../components/Header/Tabs';
 import styles from './styles';
-import SearchBar from '../../components/SearchBar';
-import Categories from '../../components/Categories';
-import PlaceList from '../../components/Places/PlaceList';
 import axios from 'axios';
+import SearchBar from '../../components/Home/SearchBar';
+import Categories from '../../components/Home/Categories';
+import PlaceList from '../../components/Home/Places/PlaceList';
+import BottomTabs from '../../components/Home/BottomTabs/Tabs';
+import HeaderTabs from '../../components/Home/Header/Tabs';
 
 const YELP_API_KEY =
   '8LQucso6rGHh8ONa8Yc76T6Nlu4HqN-o1CRpFQUce9SQxZmdKRfnc9-ZWo-SVtcGXN0_NSQJPuSAd30dOHRLWU6AZWj2kiy3wMA2Wf-YpTpYta_UmmJTY7Iv4nOlYXYx';
@@ -13,26 +14,31 @@ const YELP_API_KEY =
 export default function Home() {
   const [places, setPlaces] = useState([]);
   const [city, setCity] = useState('San Antonio');
+  const [activeTab, setActiveTab] = useState('Delivery');
 
   useEffect(() => {
     const getPlacesFromYelp = async () => {
       const yelpURL = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
-
       const apiOptions = {
         headers: {
           Authorization: `Bearer ${YELP_API_KEY}`,
         },
       };
-      const res = await axios.get(yelpURL, apiOptions);
-      return res.data.businesses;
+      const res = await axios
+        .get(yelpURL, apiOptions)
+        .catch(e => console.log(e));
+
+      return res.data.businesses.filter(business =>
+        business.transactions.includes(activeTab.toLowerCase()),
+      );
     };
     getPlacesFromYelp().then(res => setPlaces(res));
-  }, [city]);
+  }, [activeTab, city]);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <HeaderTabs />
+        <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         <SearchBar cityHandler={setCity} />
       </View>
       <View>
@@ -41,6 +47,7 @@ export default function Home() {
       <ScrollView showsVerticalScrollIndicator={false}>
         <PlaceList places={places} />
       </ScrollView>
+      <BottomTabs />
     </SafeAreaView>
   );
 }

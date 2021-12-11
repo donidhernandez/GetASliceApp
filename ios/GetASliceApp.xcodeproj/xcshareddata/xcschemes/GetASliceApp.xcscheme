@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "GetASliceApp.app"
-               BlueprintName = "GetASliceApp"
-               ReferencedContainer = "container:GetASliceApp.xcodeproj">
+               BuildableName = "GetASliceAppApp.app"
+               BlueprintName = "GetASliceAppApp"
+               ReferencedContainer = "container:GetASliceAppApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "GetASliceAppTests.xctest"
-               BlueprintName = "GetASliceAppTests"
-               ReferencedContainer = "container:GetASliceApp.xcodeproj">
+               BuildableName = "GetASliceAppAppTests.xctest"
+               BlueprintName = "GetASliceAppAppTests"
+               ReferencedContainer = "container:GetASliceAppApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GetASliceApp.app"
-            BlueprintName = "GetASliceApp"
-            ReferencedContainer = "container:GetASliceApp.xcodeproj">
+            BuildableName = "GetASliceAppApp.app"
+            BlueprintName = "GetASliceAppApp"
+            ReferencedContainer = "container:GetASliceAppApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GetASliceApp.app"
-            BlueprintName = "GetASliceApp"
-            ReferencedContainer = "container:GetASliceApp.xcodeproj">
+            BuildableName = "GetASliceAppApp.app"
+            BlueprintName = "GetASliceAppApp"
+            ReferencedContainer = "container:GetASliceAppApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

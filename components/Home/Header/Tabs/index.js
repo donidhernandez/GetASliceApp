@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
 import HeaderButton from '../Button';
 import styles from './styles';
 
-const HeaderTabs = () => {
-  const [activeTab, setActiveTab] = useState('Delivery');
-
+const HeaderTabs = ({activeTab, setActiveTab}) => {
   return (
     <View style={styles.buttonsContainer}>
       <HeaderButton

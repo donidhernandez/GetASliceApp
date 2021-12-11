@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
-import COLORS from '../../../constants/colors';
+import COLORS from '../../../../constants/colors';
 
 const HeaderButton = ({title, activeTab, setActiveTab}) => {
   return (
