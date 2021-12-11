@@ -1,22 +1,56 @@
 import React from 'react';
 import {Image, Text, View} from 'react-native';
 import styles from './styles';
-import { Rating } from "react-native-ratings";
+import {Rating} from 'react-native-ratings';
+import COLORS from '../../../constants/colors';
 
-const About = ({place}) => {
+const About = props => {
+  console.log(props);
+  const {name, image, price, rating, reviews, categories, is_closed} =
+    props.route.params;
+
   return (
     <View>
-      <Image source={place.image} style={styles.image} />
+      <Image source={{uri: image}} style={styles.image} />
       <View style={styles.heading}>
-        <Text style={styles.title}>{place.name}</Text>
-        <View style={styles.descriptionWrapper}>
-          <Text>Hello</Text>
-          <Rating
-            startingValue={place.rating}
-            readonly
-            fractions={1}
-            imageSize={20}
-          />
+        <View style={styles.ratingContainer}>
+          <Text style={styles.title}>
+            {name} ({price})
+          </Text>
+          <View style={styles.row}>
+            <Rating
+              startingValue={rating}
+              readonly
+              fractions={1}
+              imageSize={20}
+            />
+            <Text style={styles.reviews}>({reviews}+)</Text>
+          </View>
+        </View>
+        <View style={styles.row}>
+          <View>
+            <Text
+              style={{
+                backgroundColor: is_closed ? COLORS.TART_ORANGE : COLORS.GREEN,
+                color: COLORS.SNOW,
+                width: 70,
+                padding: 5,
+                textAlign: 'center',
+                borderRadius: 15,
+                marginTop: 10,
+              }}>
+              {is_closed ? 'Closed' : 'Opened'}
+            </Text>
+          </View>
+          <View style={styles.descriptionWrapper}>
+            {categories.map((category, index) => {
+              return (
+                <Text key={index} style={styles.category}>
+                  {category.title}
+                </Text>
+              );
+            })}
+          </View>
         </View>
       </View>
     </View>

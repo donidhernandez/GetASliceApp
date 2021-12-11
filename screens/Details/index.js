@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import styles from './styles';
 import About from '../../components/Details/About';
@@ -67,10 +67,11 @@ const yelpPlaceDetails = {
   ],
 };
 
-const Details = () => {
+const Details = ({route}) => {
+  const id = useState(route.params.id);
   return (
     <SafeAreaView style={styles.container}>
-      <About place={yelpPlaceDetails} />
+      <About route={route} />
       <TabDetails foods={foods} />
     </SafeAreaView>
   );

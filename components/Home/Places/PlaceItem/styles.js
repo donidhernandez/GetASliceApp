@@ -3,7 +3,6 @@ import COLORS from '../../../../constants/colors';
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginBottom: 30,
     padding: 15,
   },
   container: {
@@ -26,7 +25,6 @@ const styles = StyleSheet.create({
   descriptionWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
     paddingHorizontal: 20,
     paddingVertical: 15,
   },
@@ -35,14 +33,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: COLORS.BLACK,
   },
-  delivery: {
-    fontSize: 13,
-    color: COLORS.TART_ORANGE,
-  },
   rating: {
-    alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: 10,
+    flexDirection: 'row',
   },
   ratingText: {
     fontWeight: '600',

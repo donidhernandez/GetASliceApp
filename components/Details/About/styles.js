@@ -11,18 +11,38 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   title: {
-    fontSize: 25,
+    fontSize: 19,
     fontWeight: '600',
     color: COLORS.BLACK,
   },
   descriptionWrapper: {
     flexDirection: 'row',
+  },
+  ratingContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
   },
-  description: {
-    fontSize: 15,
+  reviews: {
+    marginLeft: 5,
+    fontSize: 14,
     fontWeight: '400',
-    color: COLORS.BLACK,
+    color: COLORS.GRAY,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  category: {
+    backgroundColor: COLORS.CAPUT_MORTUUM,
+    color: COLORS.SNOW,
+    fontSize: 12,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    borderRadius: 10,
+    marginRight: 5,
+    marginTop: 10,
   },
 });
 

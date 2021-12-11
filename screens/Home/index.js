@@ -11,7 +11,7 @@ import HeaderTabs from '../../components/Home/Header/Tabs';
 const YELP_API_KEY =
   '8LQucso6rGHh8ONa8Yc76T6Nlu4HqN-o1CRpFQUce9SQxZmdKRfnc9-ZWo-SVtcGXN0_NSQJPuSAd30dOHRLWU6AZWj2kiy3wMA2Wf-YpTpYta_UmmJTY7Iv4nOlYXYx';
 
-export default function Home() {
+export default function Home({navigation}) {
   const [places, setPlaces] = useState([]);
   const [city, setCity] = useState('San Antonio');
   const [activeTab, setActiveTab] = useState('Delivery');
@@ -45,7 +45,7 @@ export default function Home() {
         <Categories />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <PlaceList places={places} />
+        <PlaceList places={places} navigation={navigation} />
       </ScrollView>
       <BottomTabs />
     </SafeAreaView>

@@ -6,6 +6,7 @@ const COLORS = {
   SNOW: '#fef6f9ff',
   BACKGROUND: '#ccc',
   GRAY: '#333',
+  GREEN: '#00bc78',
 };
 
 export default COLORS;
