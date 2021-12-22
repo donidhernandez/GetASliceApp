@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import styles from './styles';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
@@ -12,7 +12,13 @@ const SearchBar = ({cityHandler}) => {
       <GooglePlacesAutocomplete
         query={{key: 'AIzaSyD76jpwAb7XIWhNEoV7htmCaiM7LUyHB4w'}}
         onPress={(data, details = null) => {
-          const city = data.description.split(',')[0];
+          let city = '';
+          if (data.description.includes(',')) {
+            city = data.description.split(',')[0];
+          } else {
+            city = data.description;
+          }
+
           cityHandler(city);
         }}
         listUnderlayColor={COLORS.BLACK}

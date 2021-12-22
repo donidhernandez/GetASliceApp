@@ -22,24 +22,42 @@ const styles = StyleSheet.create({
     right: 20,
     top: 20,
   },
-  descriptionWrapper: {
-    flexDirection: 'row',
+  titleContainer: {
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 15,
   },
   title: {
-    fontSize: 15,
+    fontSize: 24,
     fontWeight: 'bold',
     color: COLORS.BLACK,
   },
-  rating: {
+  description: {
     borderRadius: 10,
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  ratingContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  rating: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   ratingText: {
-    fontWeight: '600',
-    color: COLORS.SNOW,
+    fontSize: 18,
+    fontWeight: '500',
+    color: COLORS.GRAY,
+    marginRight: 3,
+  },
+  reviewText: {
+    fontWeight: '400',
+    color: COLORS.GRAY,
+  },
+  ratingIcon: {
+    color: COLORS.ORANGE_YELLOW_CRAYOLA,
   },
 });
 

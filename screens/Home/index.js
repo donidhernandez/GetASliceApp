@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 import styles from './styles';
 import axios from 'axios';
 import SearchBar from '../../components/Home/SearchBar';
 import Categories from '../../components/Home/Categories';
 import PlaceList from '../../components/Home/Places/PlaceList';
-import BottomTabs from '../../components/Home/BottomTabs/Tabs';
+/*import BottomTabs from '../../components/Home/BottomTabs/Tabs';*/
 import HeaderTabs from '../../components/Home/Header/Tabs';
-
-const YELP_API_KEY =
-  '8LQucso6rGHh8ONa8Yc76T6Nlu4HqN-o1CRpFQUce9SQxZmdKRfnc9-ZWo-SVtcGXN0_NSQJPuSAd30dOHRLWU6AZWj2kiy3wMA2Wf-YpTpYta_UmmJTY7Iv4nOlYXYx';
+import {YELP_API_KEY} from '../../constants/api_key';
 
 export default function Home({navigation}) {
   const [places, setPlaces] = useState([]);
@@ -28,9 +26,11 @@ export default function Home({navigation}) {
         .get(yelpURL, apiOptions)
         .catch(e => console.log(e));
 
-      return res.data.businesses.filter(business =>
-        business.transactions.includes(activeTab.toLowerCase()),
-      );
+      if (res.data) {
+        return res.data.businesses.filter(business =>
+          business.transactions.includes(activeTab.toLowerCase()),
+        );
+      }
     };
     getPlacesFromYelp().then(res => setPlaces(res));
   }, [activeTab, city]);
@@ -47,7 +47,7 @@ export default function Home({navigation}) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <PlaceList places={places} navigation={navigation} />
       </ScrollView>
-      <BottomTabs />
+      {/* <BottomTabs />*/}
     </SafeAreaView>
   );
 }

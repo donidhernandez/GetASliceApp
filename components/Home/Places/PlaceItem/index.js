@@ -4,6 +4,8 @@ import styles from './styles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../../../constants/colors';
 import {Rating} from 'react-native-ratings';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Divider from '../../../Divider';
 
 export default function PlaceItem({name, image, rating, is_closed, reviews}) {
   return (
@@ -16,9 +18,17 @@ export default function PlaceItem({name, image, rating, is_closed, reviews}) {
           color={COLORS.SNOW}
         />
       </TouchableOpacity>
-      <View style={styles.descriptionWrapper}>
+      <View style={styles.titleContainer}>
         <View>
           <Text style={styles.title}>{name}</Text>
+        </View>
+        <Divider
+          lineColor={COLORS.BACKGROUND}
+          hrStyles={{
+            paddingVertical: 5,
+          }}
+        />
+        <View style={styles.description}>
           <Text
             style={{
               backgroundColor: is_closed ? COLORS.TART_ORANGE : COLORS.GREEN,
@@ -31,15 +41,13 @@ export default function PlaceItem({name, image, rating, is_closed, reviews}) {
             }}>
             {is_closed ? 'Closed' : 'Opened'}
           </Text>
-        </View>
-        <View style={styles.rating}>
-          <Rating
-            startingValue={rating}
-            readonly
-            fractions={1}
-            imageSize={20}
-          />
-          <Text> ({reviews}+) </Text>
+          <View style={styles.ratingContainer}>
+            <View style={styles.rating}>
+              <Text style={styles.ratingText}>{rating}</Text>
+              <Ionicons name="star-sharp" size={20} style={styles.ratingIcon} />
+            </View>
+            <Text style={styles.reviewText}> {reviews} reviews </Text>
+          </View>
         </View>
       </View>
     </View>

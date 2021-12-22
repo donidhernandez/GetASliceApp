@@ -11,17 +11,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   title: {
-    fontSize: 19,
+    fontSize: 24,
     fontWeight: '600',
     color: COLORS.BLACK,
   },
   descriptionWrapper: {
     flexDirection: 'row',
   },
-  ratingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+  titleContainer: {
+    paddingBottom: 8,
   },
   reviews: {
     marginLeft: 5,

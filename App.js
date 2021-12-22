@@ -1,8 +1,30 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet} from 'react-native';
 import RootNavigation from './navigation';
+import Geolocation from '@react-native-community/geolocation';
+import {useDispatch} from 'react-redux';
 
 const App: () => Node = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    Geolocation.getCurrentPosition(
+      position => {
+        dispatch({
+          type: 'SET_LOCATION',
+          payload: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          },
+        });
+      },
+      error => {
+        console.log('error', error);
+      },
+      {enableHighAccuracy: true},
+    );
+  }, []);
+
   return <RootNavigation />;
 };
 

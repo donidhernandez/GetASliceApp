@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {View, useWindowDimensions} from 'react-native';
 import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import COLORS from '../../../../constants/colors';
-import MenuList from '../MenuList';
-import Reviews from '../Reviews';
-import Location from '../Location';
+import Map from '../Map';
+import ReviewList from '../Reviews/ReviewList';
+import {YELP_API_KEY} from '../../../../constants/api_key';
+import axios from 'axios';
 
 const renderTabBar = props => (
   <TabBar
@@ -14,9 +15,10 @@ const renderTabBar = props => (
   />
 );
 
-export default function TabDetails({foods}) {
-  const FirstRoute = () => <Reviews />;
-  const SecondRoute = () => <Location />;
+export default function TabDetails({route}) {
+  const {id} = route.params;
+  const FirstRoute = () => <ReviewList id={id} />;
+  const SecondRoute = () => <Map id={id} />;
 
   const renderScene = SceneMap({
     first: FirstRoute,
