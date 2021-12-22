@@ -7,40 +7,24 @@ import {useSelector} from 'react-redux';
 import axios from 'axios';
 import {GOOGLE_MAPS_API_KEY} from '@env';
 
-const Map = ({id}) => {
+const Map = () => {
   const selector = useSelector(state => state.location);
   const [pos, setPos] = useState(selector.location);
   const [businessesPos, setBusinessesPos] = useState(selector.business);
-  const isCancelled = useRef(false);
 
-  /*  useEffect(() => {
-    isCancelled.current = true;
-    const getBusinessCoordinates = async () => {
-      const apiOptions = {
-        headers: {
-          Authorization: `Bearer ${YELP_API_KEY}`,
-        },
-      };
+  useEffect(() => {
+    let cancel = false;
 
-      const res = await axios
-        .get(`https://api.yelp.com/v3/businesses/${id}`, apiOptions)
-        .catch(e => console.log(e));
-
-      return {
-        latitude: res.data.coordinates.latitude,
-        longitude: res.data.coordinates.longitude,
-      };
-    };
-
-    if (isCancelled.current) {
-      getBusinessCoordinates().then(res => setBusinessesPos(res));
+    if (cancel) {
+      return;
     }
-    return () => {
-      isCancelled.current = false;
-    };
-  }, []);*/
+    setPos(selector.location);
+    setBusinessesPos(selector.business);
 
-  /* console.log('businesses', businessesPos);*/
+    return () => {
+      cancel = true;
+    };
+  }, [selector.business, selector.location]);
 
   const ShowMap = () => {
     if (businessesPos.latitude && businessesPos.longitude) {

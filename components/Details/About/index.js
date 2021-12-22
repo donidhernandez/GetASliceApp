@@ -43,7 +43,7 @@ const About = props => {
                 borderRadius: 15,
                 marginTop: 10,
               }}>
-              {is_closed ? 'Closed' : 'Opened'}
+              {is_closed ? 'Closed' : 'Open'}
             </Text>
           </View>
           <View style={styles.row}>
