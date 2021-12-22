@@ -4,6 +4,10 @@ const locationReducer = (
       latitude: '',
       longitude: '',
     },
+    business: {
+      latitude: '',
+      longitude: '',
+    },
   },
   action,
 ) => {
@@ -11,6 +15,13 @@ const locationReducer = (
     state = {
       ...state,
       location: action.payload,
+    };
+  }
+
+  if (action.type === 'SET_BUSINESSES_LOCATION') {
+    state = {
+      ...state,
+      business: action.payload,
     };
   }
 

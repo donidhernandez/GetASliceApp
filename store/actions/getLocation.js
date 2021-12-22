@@ -1,10 +1,26 @@
-import GetLocation from '../../constants/location';
+import axios from 'axios';
 
-const getLocation = () => {
-  return function (dispatch) {
-    const {latitude, longitude} = GetLocation();
-    console.log(latitude);
-    dispatch({type: 'SET_LOCATION', payload: {latitude, longitude}});
+import {YELP_API_KEY} from '@env';
+
+const getLocation = id => {
+  return async function (dispatch) {
+    const apiOptions = {
+      headers: {
+        Authorization: `Bearer ${YELP_API_KEY}`,
+      },
+    };
+
+    const res = await axios
+      .get(`https://api.yelp.com/v3/businesses/${id}`, apiOptions)
+      .catch(e => console.log(e));
+
+    dispatch({
+      type: 'SET_BUSINESSES_LOCATION',
+      payload: {
+        latitude: res.data.coordinates.latitude,
+        longitude: res.data.coordinates.longitude,
+      },
+    });
   };
 };
 

@@ -4,17 +4,17 @@ import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import MapViewDirections from 'react-native-maps-directions';
 import {useSelector} from 'react-redux';
-import {YELP_API_KEY} from '../../../../constants/api_key';
 import axios from 'axios';
-
-const GOOGLE_MAPS_API_KEY = 'AIzaSyD76jpwAb7XIWhNEoV7htmCaiM7LUyHB4w';
+import {GOOGLE_MAPS_API_KEY} from '@env';
 
 const Map = ({id}) => {
   const selector = useSelector(state => state.location);
   const [pos, setPos] = useState(selector.location);
-  const [businessesPos, setBusinessesPos] = useState({});
+  const [businessesPos, setBusinessesPos] = useState(selector.business);
+  const isCancelled = useRef(false);
 
-  useEffect(() => {
+  /*  useEffect(() => {
+    isCancelled.current = true;
     const getBusinessCoordinates = async () => {
       const apiOptions = {
         headers: {
@@ -31,17 +31,19 @@ const Map = ({id}) => {
         longitude: res.data.coordinates.longitude,
       };
     };
-    getBusinessCoordinates().then(res => setBusinessesPos(res));
 
+    if (isCancelled.current) {
+      getBusinessCoordinates().then(res => setBusinessesPos(res));
+    }
     return () => {
-      setBusinessesPos({});
+      isCancelled.current = false;
     };
-  }, []);
+  }, []);*/
 
-  console.log('businesses', businessesPos);
+  /* console.log('businesses', businessesPos);*/
 
   const ShowMap = () => {
-    if (businessesPos.latitude) {
+    if (businessesPos.latitude && businessesPos.longitude) {
       return (
         <MapView
           style={styles.map}
@@ -60,6 +62,21 @@ const Map = ({id}) => {
             apikey={GOOGLE_MAPS_API_KEY}
             strokeWidth={3}
             strokeColor="hotpink"
+            onStart={params => {
+              console.log(
+                `Started routing between "${params.origin}" and "${
+                  params.destination
+                }"${
+                  params.waypoints.length
+                    ? ' using waypoints: ' + params.waypoints.join(', ')
+                    : ''
+                }`,
+              );
+            }}
+            onError={errorMessage => {
+              console.log(errorMessage);
+            }}
+            resetOnChange={false}
           />
         </MapView>
       );

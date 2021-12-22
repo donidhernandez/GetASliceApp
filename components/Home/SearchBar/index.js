@@ -5,12 +5,13 @@ import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import COLORS from '../../../constants/colors';
+import {GOOGLE_MAPS_API_KEY} from '@env';
 
 const SearchBar = ({cityHandler}) => {
   return (
     <View style={styles.searchContainer}>
       <GooglePlacesAutocomplete
-        query={{key: 'AIzaSyD76jpwAb7XIWhNEoV7htmCaiM7LUyHB4w'}}
+        query={{key: GOOGLE_MAPS_API_KEY}}
         onPress={(data, details = null) => {
           let city = '';
           if (data.description.includes(',')) {

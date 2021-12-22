@@ -7,7 +7,8 @@ import Categories from '../../components/Home/Categories';
 import PlaceList from '../../components/Home/Places/PlaceList';
 /*import BottomTabs from '../../components/Home/BottomTabs/Tabs';*/
 import HeaderTabs from '../../components/Home/Header/Tabs';
-import {YELP_API_KEY} from '../../constants/api_key';
+
+import {YELP_API_KEY} from '@env';
 
 export default function Home({navigation}) {
   const [places, setPlaces] = useState([]);

@@ -4,8 +4,8 @@ import {TabView, SceneMap, TabBar} from 'react-native-tab-view';
 import COLORS from '../../../../constants/colors';
 import Map from '../Map';
 import ReviewList from '../Reviews/ReviewList';
-import {YELP_API_KEY} from '../../../../constants/api_key';
-import axios from 'axios';
+import {useDispatch} from 'react-redux';
+import getLocation from '../../../../store/actions/getLocation';
 
 const renderTabBar = props => (
   <TabBar
@@ -18,7 +18,15 @@ const renderTabBar = props => (
 export default function TabDetails({route}) {
   const {id} = route.params;
   const FirstRoute = () => <ReviewList id={id} />;
-  const SecondRoute = () => <Map id={id} />;
+  const SecondRoute = () => <Map />;
+  const dispatch = useDispatch();
+
+  const getBusinessCoordinates = businessId =>
+    dispatch(getLocation(businessId));
+
+  useEffect(() => {
+    getBusinessCoordinates(id);
+  }, []);
 
   const renderScene = SceneMap({
     first: FirstRoute,

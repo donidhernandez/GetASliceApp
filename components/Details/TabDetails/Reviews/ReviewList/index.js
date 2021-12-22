@@ -3,7 +3,7 @@ import {ScrollView} from 'react-native';
 import styles from './styles';
 import ReviewItem from '../ReviewItem';
 import axios from 'axios';
-import {YELP_API_KEY} from '../../../../../constants/api_key';
+import {YELP_API_KEY} from '@env';
 
 const ReviewList = ({id}) => {
   const [reviews, setReviews] = useState([]);

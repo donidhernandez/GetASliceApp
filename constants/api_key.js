@@ -1,2 +1,0 @@
-export const YELP_API_KEY =
-  'Hdf5UxzmuRo61y610edkG3r5vVjr8S3mQdzZe7jq5QfQN9KGoLqpBsIEjydaialnyDhr7YSj2AhfyewWmG2O9Pq68hcxbpiNGQcGEpL7mFaLX75wXTLRBXyuPgzCYXYx';
